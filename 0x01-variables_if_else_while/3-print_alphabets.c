@@ -9,13 +9,13 @@ int main(void)
 {
 	char ch;
 
-	// Print lowercase alphabet
+	/* Print lowercase alphabet */
 	for (ch = 'a'; ch <= 'z'; ch++)
 	{
 		putchar(ch);
 	}
 
-	// Print uppercase alphabet
+	/* Print uppercase alphabet */
 	for (ch = 'A'; ch <= 'Z'; ch++)
 	{
 		putchar(ch);
