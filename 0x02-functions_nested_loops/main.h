@@ -11,6 +11,7 @@ int _abs(int);
 int print_last_digit(int);
 void jack_bauer(void);
 void times_table(void);
+int add(int, int);
 /* Other function prototypes or definitions can go here */
 
 #endif /* MAIN_H */
