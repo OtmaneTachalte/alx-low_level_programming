@@ -7,6 +7,7 @@ void print_alphabet_x10(void);
 int _islower(int c);
 int _isalpha(int c);
 int print_sign(int n);
+int _abs(int);
 /* Other function prototypes or definitions can go here */
 
 #endif /* MAIN_H */
