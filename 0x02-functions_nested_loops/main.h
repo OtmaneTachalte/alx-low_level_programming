@@ -9,6 +9,7 @@ int _isalpha(int c);
 int print_sign(int n);
 int _abs(int);
 int print_last_digit(int);
+void jack_bauer(void);
 /* Other function prototypes or definitions can go here */
 
 #endif /* MAIN_H */
