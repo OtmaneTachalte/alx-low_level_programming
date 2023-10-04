@@ -29,30 +29,6 @@ int word_count(char *str)
 }
 
 /**
- * create_word - creates a word from the string
- * @str: string starting from the word
- * @start: start index of the word
- * @end: end index of the word
- *
- * Return: pointer to the word
- */
-char *create_word(char *str, int start, int end)
-{
-	char *word;
-	int i;
-
-	word = (char *) malloc(sizeof(char) * (end - start + 2));
-	if (!word)
-		return (NULL);
-
-	for (i = 0; start < end; i++, start++)
-		word[i] = str[start];
-	word[i] = '\0';
-
-	return (word);
-}
-
-/**
  * strtow - splits a string into words
  * @str: string to split
  *
@@ -60,8 +36,8 @@ char *create_word(char *str, int start, int end)
  */
 char **strtow(char *str)
 {
-	char **words;
-	int i, k = 0, len = 0, wc, c = 0, start, j;
+	char **words, *word;
+	int i, k = 0, len = 0, wc, c = 0, start, end;
 
 	while (*(str + len))
 		len++;
@@ -79,14 +55,14 @@ char **strtow(char *str)
 		{
 			if (c)
 			{
-				words[k] = create_word(str, start, i);
-				if (!words[k])
-				{
-					for (j = 0; j < k; j++)
-						free(words[j]);
-					free(words);
+				end = i;
+				word = (char *) malloc(sizeof(char) * (c + 1));
+				if (word == NULL)
 					return (NULL);
-				}
+				while (start < end)
+					*word++ = str[start++];
+				*word = '\0';
+				words[k] = word - c;
 				k++;
 				c = 0;
 			}
