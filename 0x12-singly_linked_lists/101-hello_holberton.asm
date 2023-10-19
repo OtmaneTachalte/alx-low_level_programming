@@ -1,24 +1,20 @@
+extern printf
+
 section .data
-    hello db "Hello, Holberton", 0x0A, 0 ; The string to be printed with a newline and null terminator
+msg:    db "Hello, Holberton", 0
+fmt:    db "%s", 10, 0
 
 section .text
-    extern printf
-    global main
-
+global main
 main:
-    ; Prepare the stack to be aligned
-    push rbp
+    push    rbp
 
-    ; Prepare arguments for printf
-    mov rdi, hello      ; The format string (1st argument of printf)
-
-    ; Call printf
+    mov rdi, fmt
+    mov rsi, msg
+    xor rax, rax
     call printf
 
-    ; Clean up the stack
     pop rbp
 
-    ; Exit the program
-    mov rax, 60         ; syscall: exit
-    xor rdi, rdi        ; status: 0
-    syscall
+    xor rax, rax
+    ret
